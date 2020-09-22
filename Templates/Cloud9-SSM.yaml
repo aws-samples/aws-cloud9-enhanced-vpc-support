@@ -1,0 +1,42 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+AWSTemplateFormatVersion : "2010-09-09"
+Description: >
+  AWS Blog: Run your AWS Cloud9 environment in a private subnet 
+
+  Sample Cloudformation template to launch the AWS Cloud9 instance 
+  in a private subnet with access via AWS Systems Manager.
+
+Parameters: 
+  ParamAWSCloud9InstanceType:
+    Type: String
+    Default: "t2.micro"
+    AllowedValues:
+      - t2.micro
+      - t3.small
+      - m5.large
+    Description: >
+      Enter the EC2 instance type for the AWS Cloud9 environment:
+      - t2.micro (1 GiB RAM + 1 vCPU) 
+        Free-tier eligible, ideal for educational users and exploration.
+      - t3.small (2 GiB RAM + 2 vCPU)
+        Recommended for small-sized web projects.
+      - m5.large (8 GiB RAM + 2 vCPU)
+        Recommended for production and general-purpose development.
+
+  ParamAWSCloud9SubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Default: "subnet-123a351e"
+    Description: "Select the subnet to deploy the AWS Cloud9 instance."
+
+Resources:
+  AWSCloud9SSHInstance:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties:
+      AutomaticStopTimeMinutes: 30
+      ConnectionType: "CONNECT_SSM"
+      Description: "AWS Cloud9 instance accessible using AWS Systems Manager"
+      InstanceType: !Ref ParamAWSCloud9InstanceType
+      SubnetId: !Ref ParamAWSCloud9SubnetId
+
