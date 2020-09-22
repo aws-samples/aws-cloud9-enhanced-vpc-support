@@ -3,7 +3,7 @@
 
 AWSTemplateFormatVersion : "2010-09-09"
 Description: >
-  AWS Blog: Run your AWS Cloud9 environment in a private subnet 
+  AWS Blog: Isolating network access to your AWS Cloud9 environments
 
   Sample Cloudformation template to launch the AWS Cloud9 instance 
   in a private subnet with access via AWS Systems Manager.

@@ -3,8 +3,8 @@
 
 AWSTemplateFormatVersion : "2010-09-09"
 Description: >
-  AWS Blog: Run your AWS Cloud9 environment in a private subnet 
-
+  AWS Blog: Isolating network access to your AWS Cloud9 environments
+  
   Sample Cloudformation template to set up interface VPC endpoints
   for use with AWS Cloud9 EC2 instance with access via AWS Systems 
   Manager. This provides interface VPC endpoints for the following
