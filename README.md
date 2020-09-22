@@ -1,11 +1,6 @@
-## My Project
+## Isolating network access to your AWS Cloud9 environments 
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+AWS CloudFormation templates to configure VPC endpoints for Session Manager and deploy AWS Cloud9 no-ingress EC2 instance. These templates are made available as part of the AWS Security blog post: Isolating network access to your AWS Cloud9 environments.
 
 ## Security
 
